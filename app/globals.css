@@ -34,7 +34,7 @@
 }
 
 .text-galaxy {
-  background: linear-gradient(270deg, #3d3dc7, #dccaec, #1266e4, #cacad4, #3d3dc7);
+  background: linear-gradient(270deg, #b3b3b3, #114fd4, #64b0f8, #9e9e9e, #5842d3);
   background-size: 1000% 1000%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

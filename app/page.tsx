@@ -13,6 +13,7 @@ import { useOutsideClick } from "../components/hooks/use-outside-click";
 import { GlareCard } from "../components/ui/glare-card";
 import Image from "next/image";
 import { div } from "motion/react-client";
+import { Carousel } from "../components/ui/carousel";
 
 // Interfaces 
 interface GridItemProps {
@@ -23,8 +24,8 @@ interface GridItemProps {
 }
 
 // Variables
-const wordsflips = ["Java", "PHP", "React", "Flutter"];
-const words = "Bienvenue sur mon";
+const wordsflips = ["Java,", "PHP,", "React,", "Flutter,"];
+const words = "Bienvenu sur mon";
 
 export function AuroraBackgroundDemo() {
   useEffect(() => {
@@ -86,11 +87,11 @@ export function AuroraBackgroundDemo() {
           }}
           className="relative flex flex-col gap-4 items-center justify-center px-4"
         >
-          <div className="text-4xl md:text-8xl font-bold dark:text-white text-center">
+          <div className="text-4xl md:text-8xl font-bold text-white text-center">
             <TextGenerateEffect words={words} />
             <span className="text-galaxy">Portfolio</span>
           </div>
-          <div className="font-extralight text-lg md:text-5xl dark:text-neutral-200 py-4 text-center">
+          <div className="font-extralight text-lg md:text-5xl text-white py-4 text-center">
             <p className="inline">
               Je suis <span className="text-galaxy"> BENOIT VANHOENACKER</span>,<br />
               un développeur web passionné par la création de
@@ -112,7 +113,7 @@ export function AuroraBackgroundDemo() {
             <div className="text-7xl mx-auto font-normal text-neutral-100 dark:text-neutral-400">
               Développeur
               <FlipWords words={wordsflips} /> <br />
-              Fullstack, et bien plus encore dans le futur !
+              et bien plus encore dans le futur !
             </div>
           </div>
         </section>
@@ -142,6 +143,53 @@ export function AuroraBackgroundDemo() {
                   <p className="text-base md:text-lg">
                     Curieux, autonome et toujours prêt à apprendre de nouvelles technos, je développe autant pour les projets d’école que pour mes propres défis perso. Mon objectif ? Monter en compétences, construire des projets concrets et évoluer dans un environnement où la tech rime avec passion.
                   </p>
+
+                  <div className="w-full py-4 mt-8 rounded shadow">
+                    <h2 className="text-3xl text-galaxy md:text-4xl h-12 font-sans">Langages</h2> {/* Augmenté de 4px */}
+                    <p className="text-base md:text-lg mt-2">
+                      Je suis à l'aise avec plusieurs langages de programmation, notamment <span className="text-galaxy">Java</span>, <span className="text-galaxy">PHP</span>, <span className="text-galaxy">JavaScript</span> et <span className="text-galaxy">Dart</span>. J'ai également une bonne maîtrise des frameworks tels que <span className="text-galaxy">React</span> et <span className="text-galaxy">Flutter</span>.
+                    </p>
+
+                    {/* Ajout des icônes */}
+                    <div className="grid grid-cols-3 gap-8 mt-4">
+                      <div className="flex flex-col items-center">
+                        <a href="https://www.java.com" target="_blank" rel="noopener noreferrer">
+                          <img src="/img/java.svg" alt="Java" className="h-16 w-16" />
+                          <p className="text-center text-lg mt-2 text-galaxy hover:underline">Java</p>
+                        </a>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <a href="https://www.php.net" target="_blank" rel="noopener noreferrer">
+                          <img src="/img/php.svg" alt="PHP" className="h-16 w-16" />
+                          <p className="text-center text-lg mt-2 text-galaxy hover:underline">PHP</p>
+                        </a>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+                          <img src="/img/js.png" alt="JavaScript" className="h-16 w-16" />
+                          <p className="text-center text-lg mt-2 text-galaxy hover:underline">JavaScript</p>
+                        </a>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <a href="https://dart.dev" target="_blank" rel="noopener noreferrer">
+                          <img src="/img/dart.png" alt="Dart" className="h-16 w-16" />
+                          <p className="text-center text-lg mt-2 text-galaxy hover:underline">Dart</p>
+                        </a>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+                          <img src="/img/react.png" alt="React" className="h-16 w-16" />
+                          <p className="text-center text-lg mt-2 text-galaxy hover:underline">React</p>
+                        </a>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <a href="https://flutter.dev" target="_blank" rel="noopener noreferrer">
+                          <img src="/img/flutter.png" alt="Flutter" className="h-16 w-16" />
+                          <p className="text-center text-lg mt-2 text-galaxy hover:underline">Flutter</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                   {/* Ajout de la section TimelineDemo */}
                   <div className="mt-8">
                     <TimelineDemo />
@@ -155,7 +203,8 @@ export function AuroraBackgroundDemo() {
               title="Veille technologique"
               description={
                 <div className="mt-4">
-                  <ExpandableCardDemo />
+                  {/* Appel au carrousel */}
+                  <CarouselDemo />
                 </div>
               }
             />
@@ -164,19 +213,25 @@ export function AuroraBackgroundDemo() {
               icon={<Sparkles className="h-4 w-4 text-white dark:text-neutral-400" />}
               title="Liens utiles"
               description={
-                <div className="grid grid-cols-2"> {/* Grid avec 2 colonnes */}
-                  <GlareCard className="flex flex-col items-center justify-center">
-                    <img
-                      className="h-full w-full absolute inset-0 object-cover"
-                      src="/img/cv.png"
-                    />
-                  </GlareCard>
-                  <GlareCard className="flex flex-col items-center justify-center">
-                    <img
-                      className="h-full w-full absolute inset-0 object-cover"
-                      src="/img/grille.png"
-                    />
-                  </GlareCard>
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {cards.map((card, index) => (
+                    <div key={index} className="relative">
+                      <GlareCard>
+                        <div className="p-4">
+                          <h3 className="text-xl font-bold text-galaxy">{card.title}</h3>
+                          <p className="mt-2 text-sm text-white">{card.description}</p>
+                          <a
+                            href={card.ctaLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-4 inline-block text-galaxy hover:underline"
+                          >
+                            {card.ctaText}
+                          </a>
+                        </div>
+                      </GlareCard>
+                    </div>
+                  ))}
                 </div>
               }
             />
@@ -305,26 +360,26 @@ export function ExpandableCardDemo() {
   );
   const ref = useRef<HTMLDivElement>(null as unknown as HTMLDivElement);
   const id = useId();
- 
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setActive(false);
       }
     }
- 
+
     if (active && typeof active === "object") {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
- 
+
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
- 
+
   useOutsideClick(ref, () => setActive(null));
- 
+
   return (
     <>
       <AnimatePresence>
@@ -332,11 +387,11 @@ export function ExpandableCardDemo() {
           <div className="fixed inset-0 grid place-items-center z-[100]">
             {/* Fond derrière la carte avec effet de fondu */}
             <motion.div
-              initial={{ opacity: 0 }} // Opacité initiale
-              animate={{ opacity: 1 }} // Opacité finale
-              exit={{ opacity: 0 }} // Opacité lors de la sortie
-              transition={{ duration: 0.3 }} // Durée de la transition
-              className="absolute inset-0 bg-black/70 z-[-1] sm:rounded-3xl" // Fond semi-transparent
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 bg-black/70 z-[-1] sm:rounded-3xl"
             />
 
             {/* Carte agrandie */}
@@ -397,10 +452,10 @@ export function ExpandableCardDemo() {
         {cards.map((card, index) => (
           <HoverBorderGradient
             key={`card-${card.title}-${index}`}
-            containerClassName="rounded-xl" // Applique un contour arrondi
-            as="div" // Utilise une div comme conteneur
+            containerClassName="rounded-xl"
+            as="div"
             className="p-4 flex flex-col justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
-            onClick={() => setActive(card)} // Gère le clic sur la carte
+            onClick={() => setActive(card)}
           >
             <motion.div
               layoutId={`card-${card.title}-${index}`}
@@ -439,7 +494,7 @@ export function ExpandableCardDemo() {
     </>
   );
 }
- 
+
 export const CloseIcon = () => {
   return (
     <motion.svg
@@ -582,3 +637,33 @@ const cards = [
     },
   },
 ];
+
+export function CarouselDemo() {
+  const slideData = [
+    {
+      title: "Mystic Mountains",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Urban Dreams",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Neon Nights",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1590041794748-2d8eb73a571c?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Desert Whispers",
+      button: "Explore Component",
+      src: "https://images.unsplash.com/photo-1679420437432-80cfbf88986c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
+  return (
+    <div className="relative overflow-hidden w-full h-full py-20">
+      <Carousel slides={slideData} />
+    </div>
+  );
+}

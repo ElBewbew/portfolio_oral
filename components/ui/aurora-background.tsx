@@ -17,7 +17,7 @@ export const AuroraBackground = ({
     <main>
       <div
         className={cn(
-          "transition-bg flex flex-col justify-center bg-zinc-50 text-slate-950 dark:bg-zinc-900",
+          "transition-bg flex flex-col justify-center bg-zinc-900 text-slate-950 dark:bg-zinc-900",
           className,
         )}
         style={{minHeight:"100vh"}}
