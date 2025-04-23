@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}
+
+@keyframes galaxyColor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-galaxy {
+  background: linear-gradient(270deg, #3d3dc7, #dccaec, #1266e4, #cacad4, #3d3dc7);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: galaxyColor 10s ease infinite;
+}
+
+#floating-navbar {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+#floating-navbar.visible {
+  opacity: 1;
+}
+
+#first-section.fixed {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+#navbar {
+  background-color: transparent; /* Pas de fond */
+  transition: opacity 0.5s ease-in-out; /* Transition fluide pour l'apparition */
+  opacity: 0; /* Masqué par défaut */
+}
+
+#navbar.visible {
+  opacity: 1; /* Visible après avoir dépassé la deuxième section */
+}
+
+#navbar:not(.visible) {
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.shadow-b-lg {
+  box-shadow: 0 7px 15px 14px rgba(0, 0, 0, 0.2), 0 4px 60px 14px rgba(0, 0, 0, 0.05);
+}
