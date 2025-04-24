@@ -14,6 +14,8 @@ import { GlareCard } from "../components/ui/glare-card";
 import Image from "next/image";
 import { div } from "motion/react-client";
 import { Carousel } from "../components/ui/carousel";
+import { AnimatedTooltip } from "../components/ui/animated-tooltip";
+import { Spotlight } from "../components/ui/spotlight-new";
 
 // Interfaces 
 interface GridItemProps {
@@ -202,10 +204,16 @@ export function AuroraBackgroundDemo() {
               icon={<Box className="h-4 w-4 text-white dark:text-neutral-400" />}
               title="Veille technologique"
               description={
-                <div className="mt-4">
-                  {/* Appel au carrousel */}
-                  <CarouselDemo />
-                </div>
+                <>
+                  {/* Texte visible sous le titre */}
+                  <p className="mt-2 text-base md:text-lg text-white">
+                    La veille technologique permet de rester informé des dernières tendances et outils dans le domaine du développement.
+                  </p>
+                  <div>
+                    {/* Contenu principal */}
+                    <CarouselDemo />
+                  </div>
+                </>
               }
             />
             <GridItem
@@ -213,29 +221,61 @@ export function AuroraBackgroundDemo() {
               icon={<Sparkles className="h-4 w-4 text-white dark:text-neutral-400" />}
               title="Liens utiles"
               description={
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {cards.map((card, index) => (
-                    <div key={index} className="relative">
-                      <GlareCard>
-                        <div className="p-4">
-                          <h3 className="text-xl font-bold text-galaxy">{card.title}</h3>
-                          <p className="mt-2 text-sm text-white">{card.description}</p>
-                          <a
-                            href={card.ctaLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-4 inline-block text-galaxy hover:underline"
-                          >
-                            {card.ctaText}
-                          </a>
-                        </div>
-                      </GlareCard>
-                    </div>
-                  ))}
-                </div>
+<div className="grid grid-cols-1 md:grid-cols-2">
+  <GlareCard className="flex flex-col items-center justify-center">
+    <img
+      className="h-full w-full absolute inset-0 object-cover"
+      src="/img/cv.png"
+    />
+  </GlareCard>
+
+  <GlareCard className="flex flex-col items-center justify-center">
+    <img
+      className="h-full w-full absolute inset-0 object-cover"
+      src="/img/grille.png"
+    />
+  </GlareCard>
+</div>
               }
             />
           </ul>
+        </section>
+
+        {/* Section "Footer" */}
+        <section
+          id="footer-section"
+          className="w-full bg-black dark:bg-white flex flex-col items-center justify-center py-10 shadow-b-lg mt-10"
+        >
+          <div className="text-3xl md:text-5xl font-bold text-center text-galaxy mb-4">
+            Merci de votre visite !
+          </div>
+          <p className="text-lg md:text-xl text-neutral-300 dark:text-neutral-600 text-center max-w-2xl">
+            Retrouvez-moi sur mes réseaux ou contactez-moi pour en savoir plus sur mes projets.
+          </p>
+          <div className="flex gap-6 mt-6">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-galaxy hover:underline text-lg"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-galaxy hover:underline text-lg"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:contact@benoitvanhoenacker.com"
+              className="text-galaxy hover:underline text-lg"
+            >
+              Email
+            </a>
+          </div>
         </section>
       </AuroraBackground>
     </div>
@@ -534,7 +574,7 @@ const cards = [
     title: "Next js",
     image: (
       <Image
-        src="/img/gsb.png"
+        src="/img/cv.png"
         alt="zdzdz"
         width={160}
         height={160}
@@ -641,29 +681,143 @@ const cards = [
 export function CarouselDemo() {
   const slideData = [
     {
-      title: "Mystic Mountains",
-      button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Docu 1",
+      button: "En savoir plus...",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
     },
     {
-      title: "Urban Dreams",
-      button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Docu 2",
+      button: "En savoir plus...",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
     },
     {
-      title: "Neon Nights",
-      button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1590041794748-2d8eb73a571c?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Docu 3",
+      button: "En savoir plus...",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
     },
     {
-      title: "Desert Whispers",
-      button: "Explore Component",
-      src: "https://images.unsplash.com/photo-1679420437432-80cfbf88986c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Docu 1",
+      button: "En savoir plus...",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+    },
+    {
+      title: "Docu 1",
+      button: "En savoir plus...",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+    },
+    {
+      title: "Docu 1",
+      button: "En savoir plus...",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
     },
   ];
+
   return (
     <div className="relative overflow-hidden w-full h-full py-20">
+      {/* Carrousel */}
       <Carousel slides={slideData} />
+
+      {/* Titre sous le carrousel */}
+      <h2 className="text-3xl font-sans text-center text-galaxy mt-20">
+        Outils de Veille
+      </h2>
+
+      {/* Composant AnimatedTooltip */}
+      <AnimatedTooltipPreview />
     </div>
   );
 }
+
+export function AnimatedTooltipPreview() {
+  const people = [
+    {
+      id: 1,
+      name: "Next js",
+      designation: "Documentation",
+      image:
+        "https://logowik.com/content/uploads/images/nextjs2106.logowik.com.webp",
+    },
+    {
+      id: 2,
+      name: "Youtube",
+      designation: "Video",
+      image:
+        "https://img.freepik.com/vecteurs-premium/logo-rond-youtube-isole-fond-blanc_469489-983.jpg?semt=ais_hybrid&w=740",
+    },
+    {
+      id: 3,
+      name: "ChatGPT",
+      designation: "IA",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s",
+    },
+    {
+      id: 4,
+      name: "GitHub",
+      designation: "Code Repository",
+      image:
+        "https://yt3.googleusercontent.com/PKRBxhCiGa8Y0vPmHa1E2cdjpLhUq2Pl-gESwP7kk2plGgxLdsbjyTd9VjcJwBMiY0HQ8bvx5Q=s900-c-k-c0x00ffffff-no-rj",
+    },
+    {
+      id: 5,
+      name: "X",
+      designation: "Reseaux sociaux",
+      image:
+        "https://www.internetmatters.org/wp-content/uploads/2024/08/x-formerly-twitter-article-hero.webp",
+    },
+    {
+      id: 6,
+      name: "React Status",
+      designation: "NewLetter",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAchwXzctzezPSzQA7e-deh5OVLHKtQjUpHw&s",
+    },
+  ];
+
+  return (
+    <div className="flex flex-row items-center justify-center mb-10 w-full">
+      <AnimatedTooltip items={people} />
+    </div>
+  );
+}
+
+{/* <GlareCard className="flex flex-col items-center justify-center">
+        <img
+          className="h-full w-full absolute inset-0 object-cover"
+          src="https://images.unsplash.com/photo-1512618831669-521d4b375f5d?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        />
+      </GlareCard> 
+      
+
+
+
+import { GlareCard } from "../ui/glare-card";
+
+export function GlareCardDemo() {
+  return (
+    <GlareCard className="flex flex-col items-center justify-center">
+      <svg
+        width="66"
+        height="65"
+        viewBox="0 0 66 65"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-7 w-7 text-white"
+      >
+        <path
+          d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+          stroke="currentColor"
+          strokeWidth="15"
+          strokeMiterlimit="3.86874"
+          strokeLinecap="round"
+        />
+      </svg>
+      <p className="text-white font-bold text-xl mt-4">Aceternity</p>
+    </GlareCard>
+  );
+}
+
+
+      
+      */
+    }
