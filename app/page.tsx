@@ -16,6 +16,7 @@ import { div } from "motion/react-client";
 import { Carousel } from "../components/ui/carousel";
 import { AnimatedTooltip } from "../components/ui/animated-tooltip";
 import { Spotlight } from "../components/ui/spotlight-new";
+import { link } from "fs";
 
 // Interfaces 
 interface GridItemProps {
@@ -338,49 +339,49 @@ export function TimelineDemo() {
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              
             />
             <HoverBorderGradient
             containerClassName="rounded-full mx-auto mt-23"
             as="button"
             className="dark:bg-black text-white dark:text-white flex items-center space-x-2 "
+            onClick={() => window.location.href = "https://aws.amazon.com/fr/"}
           >
             <span className="text-lg md:text-2xl">En savoir plus</span>
           </HoverBorderGradient>
-            <img
-              src="/img/m2l.png"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <div>
-            <HoverBorderGradient
-            containerClassName="rounded-full mx-auto mt-23"
-            as="button"
-            className="dark:bg-black bg-black text-white dark:text-white flex items-center space-x-2"
-          >
-            <span className="text-lg md:text-2xl">En savoir plus</span>
-          </HoverBorderGradient>
-            </div>
+            
           </div>
         </div>
+        
       ),
     },
     {
       title: "2023-2024",
       content: (
         <div>
-          <p className="mb-8 text-xs font-sans  md:text-sm dark:text-neutral-200">
-            
+          <p className="mb-8 text- font-sans md:text-sm ">
+            1ère années de BTS - Création d'une application en javaFX
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="/img/gsb.png"
-              alt="hero template"
+              src="/img/m2l.png"
+              alt=""
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
+            {/* <HoverBorderGradient
+            containerClassName="rounded-full mx-auto mt-23"
+            as="button"
+            className="dark:bg-black text-white dark:text-white flex items-center space-x-2 "
+            onClick={() => window.location.href = "http://btssiogap.com/uploads/images/gallery/2022-01/image-1642585801938.png"}
+            
+            
+          >
+            <span className="text-lg md:text-2xl">En savoir plus</span>
+          </HoverBorderGradient> */}
+          
+            
           </div>
         </div>
       ),
@@ -684,31 +685,37 @@ export function CarouselDemo() {
       title: "Docu 1",
       button: "En savoir plus...",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+      link: "https://example.com/docu1",
     },
     {
       title: "Docu 2",
       button: "En savoir plus...",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+      link: "https://example.com/docu1",
     },
     {
       title: "Docu 3",
       button: "En savoir plus...",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+      link: "https://example.com/docu1",
     },
     {
       title: "Docu 1",
       button: "En savoir plus...",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+      link: "https://example.com/docu1",
     },
     {
       title: "Docu 1",
       button: "En savoir plus...",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+      link: "https://example.com/docu1",
     },
     {
       title: "Docu 1",
       button: "En savoir plus...",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
+      link: "https://example.com/docu1",
     },
   ];
 
@@ -732,10 +739,10 @@ export function AnimatedTooltipPreview() {
   const people = [
     {
       id: 1,
-      name: "Next js",
+      name: "AWS",
       designation: "Documentation",
       image:
-        "https://logowik.com/content/uploads/images/nextjs2106.logowik.com.webp",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2xQcwKitRgXfqdi34DYlocPSEXD2G2zZipg&s",
     },
     {
       id: 2,
