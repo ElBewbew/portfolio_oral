@@ -1,22 +1,20 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState, useRef, useId } from "react";
 import { AuroraBackground } from "../components/ui/aurora-background";
 import { TextGenerateEffect } from "../components/ui/text-generate-effect";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { FlipWords } from "../components/ui/flip-words";
-import { Box, Lock, Search, Settings, Sparkles, User } from "lucide-react";
+import { Box, Sparkles, User } from "lucide-react";
 import { GlowingEffect } from "../components/ui/glowing-effect";
 import { Timeline } from "../components/ui/timeline";
 import { useOutsideClick } from "../components/hooks/use-outside-click";
 import { GlareCard } from "../components/ui/glare-card";
 import Image from "next/image";
-import { div } from "motion/react-client";
-import { Carousel } from "../components/ui/carousel";
 import { AnimatedTooltip } from "../components/ui/animated-tooltip";
-import { Spotlight } from "../components/ui/spotlight-new";
-import { link } from "fs";
+
+
 
 // Interfaces 
 interface GridItemProps {
@@ -127,9 +125,7 @@ export function AuroraBackgroundDemo() {
           className="relative w-3/4 h-auto bg-black flex flex-col gap-4 p-4 mt-10 ml-auto rounded-2xl shadow-lg shadow-b-lg"
         >
           {/* Titre de la section */}
-          <div className="w-full text-center text-galaxy py-4 rounded shadow">
-            <h2 className="text-3xl md:text-5xl font-sans">oui</h2> {/* Augmenté de 4px */}
-          </div>
+          
 
           {/* Grid */}
           <ul className="grid grid-cols-1 gap-4">
@@ -222,21 +218,29 @@ export function AuroraBackgroundDemo() {
               icon={<Sparkles className="h-4 w-4 text-white dark:text-neutral-400" />}
               title="Liens utiles"
               description={
-<div className="grid grid-cols-1 md:grid-cols-2">
-  <GlareCard className="flex flex-col items-center justify-center">
-    <img
-      className="h-full w-full absolute inset-0 object-cover"
-      src="/img/cv.png"
-    />
-  </GlareCard>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Premier élément cliquable */}
+                  <a href="https://example.com/cv" target="_blank" rel="noopener noreferrer">
+                    <GlareCard className="flex flex-col items-center justify-center">
+                      <img
+                        className="h-full w-full absolute inset-0 object-cover"
+                        src="/img/cv.png"
+                        alt="CV"
+                      />
+                    </GlareCard>
+                  </a>
 
-  <GlareCard className="flex flex-col items-center justify-center">
-    <img
-      className="h-full w-full absolute inset-0 object-cover"
-      src="/img/grille.png"
-    />
-  </GlareCard>
-</div>
+                  {/* Deuxième élément cliquable */}
+                  <a href="https://example.com/grille" target="_blank" rel="noopener noreferrer">
+                    <GlareCard className="flex flex-col items-center justify-center">
+                      <img
+                        className="h-full w-full absolute inset-0 object-cover"
+                        src="/img/grille.png"
+                        alt="Grille"
+                      />
+                    </GlareCard>
+                  </a>
+                </div>
               }
             />
           </ul>
@@ -339,16 +343,15 @@ export function TimelineDemo() {
               width={500}
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-              
             />
-            <HoverBorderGradient
-            containerClassName="rounded-full mx-auto mt-23"
-            as="button"
-            className="dark:bg-black text-white dark:text-white flex items-center space-x-2 "
-            onClick={() => window.location.href = "https://aws.amazon.com/fr/"}
-          >
-            <span className="text-lg md:text-2xl">En savoir plus</span>
-          </HoverBorderGradient>
+            <img
+              src="/img/pnvm.png"
+              alt=""
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            
+            />
             
           </div>
         </div>
@@ -370,6 +373,14 @@ export function TimelineDemo() {
               height={500}
               className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
+            <img
+              src="/img/dafy.jpg"
+              alt=""
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+
             {/* <HoverBorderGradient
             containerClassName="rounded-full mx-auto mt-23"
             as="button"
@@ -681,56 +692,177 @@ const cards = [
 
 export function CarouselDemo() {
   const slideData = [
+    // 2023
     {
-      title: "Docu 1",
+      title: "Janvier 2023 – Lancement de Google Cloud Hyperlocal",
       button: "En savoir plus...",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
-      link: "https://example.com/docu1",
+      src: "https://storage.googleapis.com/gweb-cloudblog-publish/images/RSAC_2025_rollup_hero.max-1000x1000.jpg",
+      link: "https://cloud.google.com/blog",
     },
     {
-      title: "Docu 2",
+      title: "Février 2023 – Microsoft Azure AI Services",
       button: "En savoir plus...",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
-      link: "https://example.com/docu1",
+      src: "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/1022443-desktop-3-up-media-card-featured-news-card-1-416x178?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=832&hei=357&qlt=100&fmt=png-alpha&fit=constrain",
+      link: "https://azure.microsoft.com/",
     },
     {
-      title: "Docu 3",
+      title: "Mars 2023 – AWS Graviton3",
       button: "En savoir plus...",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
-      link: "https://example.com/docu1",
+      src: "https://d1.awsstatic.com/Tab-4_aws-library_illustration_expertise_6_1200.41c428a850e9348f3386227fa4f2ccf96186c2fe.png",
+      link: "https://aws.amazon.com/",
     },
     {
-      title: "Docu 1",
+      title: "Mai 2023 – Adoption du Cloud Hybride par le Gouvernement Français",
       button: "En savoir plus...",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
-      link: "https://example.com/docu1",
+      src: "https://www.info.gouv.fr/upload/media/content/0001/13/c82912aca14215fed79ab26f6f1ca0a2119b4360.png",
+      link: "https://www.gouvernement.fr/",
     },
     {
-      title: "Docu 1",
+      title: "Juin 2023 – Cloud Gaming avec Microsoft xCloud",
       button: "En savoir plus...",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
-      link: "https://example.com/docu1",
+      src: "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Surface-Pro-AI-11Ed-Sapphire-MC001-3000x1682:VP5-1920x600",
+      link: "https://www.microsoft.com/",
     },
     {
-      title: "Docu 1",
+      title: "Juillet 2023 – Lancement de l’infrastructure serverless de Google Cloud",
       button: "En savoir plus...",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdl8u81goWJcMdQlW9PbbFW6GQy1x07JPdJeoVrQtfyEtEKbvECeB1t5PPVMzpc4Pl9tE&usqp=CAU",
-      link: "https://example.com/docu1",
+      src: "https://storage.googleapis.com/gweb-cloudblog-publish/images/Agenspace_delivers_AI.max-2500x2500.jpg",
+      link: "https://cloud.google.com/",
+    },
+    {
+      title: "Août 2023 – Transition Green Cloud d'AWS",
+      button: "En savoir plus...",
+      src: "https://d1.awsstatic.com/Tab-5_aws-library_illustration_expertise_4_1200.c6a386fca4b89988e73707acbf1d6f72a6d81de9.png",
+      link: "https://aws.amazon.com/",
+    },
+    {
+      title: "Septembre 2023 – Kubernetes 1.25",
+      button: "En savoir plus...",
+      src: "https://kubernetes.io/images/community/kubernetes-community-final-02.jpg",
+      link: "https://kubernetes.io/",
+    },
+    {
+      title: "Octobre 2023 – Accélération des Microservices avec AWS Lambda",
+      button: "En savoir plus...",
+      src: "https://d1.awsstatic.com/Tab-2_aws-library_illustration_connect_2_1200.01e92eb7518394f283baf913f26f5dda1bbd75e3.png",
+      link: "https://aws.amazon.com/lambda/",
+    },
+    {
+      title: "Décembre 2023 – Expansion du Cloud en Afrique",
+      button: "En savoir plus...",
+      src: "https://www.itforbusiness.fr/wp-content/uploads/2019/03/4e8ed8605ea3329dd24acebe731baa6a.jpg",
+      link: "https://www.itforbusiness.fr/expansion-des-clouds-les-nuages-arrivent-en-afrique-19600",
+    },
+
+    // 2024
+    {
+      title: "Janvier 2024 – Expansion d'Azure OpenAI Service",
+      button: "En savoir plus...",
+      src: "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/361349-desktop-full-screen-banner-azure-regions-bg-1600x372?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3200&hei=744&qlt=100&fmt=png-alpha&fit=constrain",
+      link: "https://azure.microsoft.com/",
+    },
+    {
+      title: "Février 2024 – Développement du Cloud Quantique",
+      button: "En savoir plus...",
+      src: "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/8a/b8/cfo-fnance-transformation-leadspace.component.crop-5by4-xl.ts=1745254671332.png/content/adobe-cms/fr/fr/homepage/jcr:content/root/leadspace_container/leadspace_expanded",
+      link: "https://www.ibm.com/",
+    },
+    {
+      title: "Mars 2024 – Cloud Healthcare by AWS",
+      button: "En savoir plus...",
+      src: "https://d2908q01vomqb2.cloudfront.net/c5b76da3e608d34edb07244cd9b875ee86906328/2024/12/11/RIV-Header.jpg",
+      link: "https://aws.amazon.com/fr/blogs/industries/healthcare-and-life-sciences-top-10-announcements-from-aws-reinvent-2024/",
+    },
+    {
+      title: "Mai 2024 – Cloud Hybride et 5G",
+      button: "En savoir plus...",
+      src: "https://pictures.latribune.fr/cdn-cgi/image/width=1920,format=auto,quality=80/379/2403379.jpg?twic=v1/cover=1200x675",
+      link: "https://www.latribune.fr/technos-medias/paris-2024-un-parcours-100-cloud-et-5g-privee-pour-suivre-la-flamme-olympique-1001597.html",
+    },
+    {
+      title: "Juin 2024 – Blockchain et Cloud Computing",
+      button: "En savoir plus...",
+      src: "https://imgs.search.brave.com/vQkKfJ-HC36gtrmmrIkofxOYFnU6kaWN5cEPCBmUgU8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTUz/NDk5MDEwL2ZyL3Bo/b3RvL2Jsb2NrY2hh/aW4tdGVjaG5vbG9n/aWUtc3RydWN0dXJl/LXBhc2FudGUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPXdl/RVRNVlNxQloydFlF/ODlNT01EVGdmRDJD/Qnd0RkljWk5zZzhm/QXppS2c9",
+      link: "https://www.blockchain.com/",
+    },
+    {
+      title: "Juillet 2024 – Accélération de la Migration Cloud",
+      button: "En savoir plus...",
+      src: "https://cdn.gminsights.com/image/rd/sustainable-and-smart-technologies/cloud-migration-services-market-2025-2034.webp",
+      link: "https://www.gminsights.com/fr/industry-analysis/cloud-migration-services-market",
+    },
+    {
+      title: "Août 2024 – Cloud et Intelligence Artificielle",
+      button: "En savoir plus...",
+      src: "https://www.banque-france.fr/system/files/styles/rectangle_600x520/private/2025-03/Denis-Beau_intervention.jpg?h=b7a36548&itok=KFeCB0Ed",
+      link: "https://www.banque-france.fr/fr/interventions-gouverneur/artificial-intelligence-evolution-and-outcomes-digital-trust-data-and-cloud",
+    },
+    {
+      title: "Septembre 2024 – Cloud dans l’Éducation",
+      button: "En savoir plus...",
+      src: "https://imgs.search.brave.com/VLNhu-NgJc0ekgpopVS1x4hlttdRqzeZy-2UUl23mz0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXkuY29tL2Fkb2Jl/L2R5bmFtaWNtZWRp/YS9kZWxpdmVyL2Rt/LWFpZC0tNTlhYTk4/NjgtNDRkMS00M2Rh/LTkxODQtNTYxYTI1/MGU3Nzk5L2V5LWVk/dGVjaC1mcmFuY2Fp/c2UtMjAyMjAzMTEu/anBnP3F1YWxpdHk9/ODUmcHJlZmVyd2Vi/cD10cnVl",
+      link: "https://www.edtechmagazine.com/",
+    },
+    {
+      title: "Novembre 2024 – Cloud et Edge Computing",
+      button: "En savoir plus...",
+      src: "https://edgecomputing.com/wp-content/uploads/2024/05/discussion-1.png",
+      link: "https://www.edgecomputing.com/",
+    },
+    {
+      title: "Décembre 2024 – Réalité Augmentée et Cloud",
+      button: "En savoir plus...",
+      src: "https://cdn.prod.website-files.com/670f5c004e9bfff84affff01/67c945eaa8218a0c4fe9ffbc_67c595066f8870d1c8900e22_67c3c832aae04b2cda55f0fc_67c170bed9d61e80b24a6c5c_Blog-Thumbnail-what-is-VR-training-1.webp",
+      link: "https://www.arvrblog.com/",
     },
   ];
 
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <div className="relative overflow-hidden w-full h-full py-20">
-      {/* Carrousel */}
-      <Carousel slides={slideData} />
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <AnimatePresence>
+          {slideData.map((slide, index) => {
+            if (!showAll && index >= 5) return null;
 
-      {/* Titre sous le carrousel */}
-      <h2 className="text-3xl font-sans text-center text-galaxy mt-20">
-        Outils de Veille
-      </h2>
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center justify-center p-4 bg-black rounded-lg shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+              >
+                <img
+                  src={slide.src}
+                  alt={slide.title}
+                  className="w-full h-40 object-cover rounded-lg"
+                />
+                <h3 className="mt-4 text-lg font-bold text-white">{slide.title}</h3>
+                <a
+                  href={slide.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-600"
+                >
+                  {slide.button}
+                </a>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
 
-      {/* Composant AnimatedTooltip */}
-      <AnimatedTooltipPreview />
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+        >
+          {showAll ? "Afficher moins" : "Afficher plus"}
+        </button>
+      </div>
     </div>
   );
 }
@@ -779,6 +911,28 @@ export function AnimatedTooltipPreview() {
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAchwXzctzezPSzQA7e-deh5OVLHKtQjUpHw&s",
     },
+    {
+      id: 6,
+      name: "React Status",
+      designation: "NewLetter",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAchwXzctzezPSzQA7e-deh5OVLHKtQjUpHw&s",
+    },
+    {
+      id: 6,
+      name: "React Status",
+      designation: "NewLetter",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAchwXzctzezPSzQA7e-deh5OVLHKtQjUpHw&s",
+    },
+    {
+      id: 7,
+      name: "React Status",
+      designation: "NewLetter",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAchwXzctzezPSzQA7e-deh5OVLHKtQjUpHw&s",
+    },
+    
   ];
 
   return (
@@ -822,9 +976,4 @@ export function GlareCardDemo() {
       <p className="text-white font-bold text-xl mt-4">Aceternity</p>
     </GlareCard>
   );
-}
-
-
-      
-      */
-    }
+} */}
